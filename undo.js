@@ -16,14 +16,10 @@ define(["./lib/diff-match-patch"], function (lib) {
             utils.diff_cleanupEfficiency(diff)
         }
 
-        var patch = utils.patch_make(b, diff)
-
-        return utils.patch_toText(patch)
+        return utils.patch_make(b, diff)
     }
 
     function applyPatch(a, patch) {
-        patch = utils.patch_fromText(patch)
-
         return utils.patch_apply(patch, a)[0]
     }
 
@@ -45,7 +41,7 @@ define(["./lib/diff-match-patch"], function (lib) {
 
         console.assert(this.p === this.stack.length)
 
-        this.stack.push(patch)
+        this.stack.push(JSON.stringify(patch))
         ++this.p
     }
 
@@ -58,7 +54,7 @@ define(["./lib/diff-match-patch"], function (lib) {
 
         var patch = this.stack[--this.p],
             a = JSON.stringify(obj),
-            b = applyPatch(a, patch)
+            b = applyPatch(a, JSON.parse(patch))
 
         return JSON.parse(b)
     }

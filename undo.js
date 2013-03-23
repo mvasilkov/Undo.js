@@ -12,7 +12,9 @@ define(["./lib/diff-match-patch"], function (lib) {
     function makePatch(a, b) {
         var diff = utils.diff_main(b, a)
 
-        utils.diff_cleanupEfficiency(diff)
+        if (diff.length > 2) {
+            utils.diff_cleanupEfficiency(diff)
+        }
 
         return utils.patch_make(b, diff)
     }
@@ -26,6 +28,8 @@ define(["./lib/diff-match-patch"], function (lib) {
         var a = JSON.stringify(obj),
             b = JSON.stringify(fun(obj) || obj),
             patch = makePatch(a, b)
+
+        if (!patch.length) return
 
         if (this.stack.length > this.p) {
             this.stack.length = this.p

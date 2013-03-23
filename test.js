@@ -21,12 +21,20 @@ describe("Undo", function () {
             undo.stack.length.should.equal(1)
         })
 
-        it("should not save null patches", function () {
+        it("should not save empty patches", function () {
             undo.rec(obj, function () {
                 // do nothing
             })
 
             undo.stack.length.should.equal(1)
+        })
+
+        it("should favor return value", function () {
+            undo.rec(obj, function () {
+                return { b: "obj.b" }
+            })
+
+            undo.stack.length.should.equal(2)
         })
     })
 })

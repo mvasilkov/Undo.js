@@ -36,6 +36,12 @@ describe("Undo", function () {
 
             undo.stack.length.should.equal(2)
         })
+
+        it("should store patches as text", function () {
+            undo.stack.forEach(function (patch) {
+                patch.should.be.a("string")
+            })
+        })
     })
 
     describe("#canUndo()", function () {

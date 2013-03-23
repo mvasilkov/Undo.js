@@ -16,7 +16,9 @@ define(["./lib/diff-match-patch"], function (lib) {
             utils.diff_cleanupEfficiency(diff)
         }
 
-        return utils.patch_make(b, diff)
+        var patch = utils.patch_make(b, diff)
+
+        return utils.patch_toText(patch)
     }
 
     function Undo() {

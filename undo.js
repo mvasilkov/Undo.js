@@ -28,7 +28,7 @@ define(["./lib/diff-match-patch"], function (lib) {
     function applyPatch(a, patch, reverse) {
         if (reverse) {
             patch.forEach(function (p) {
-                p.diffs.each(function (d) {
+                p.diffs.forEach(function (d) {
                     if (d[0]) d[0] = -d[0]
                 })
 
@@ -76,6 +76,16 @@ define(["./lib/diff-match-patch"], function (lib) {
         var patch = this.stack[--this.p],
             a = JSON.stringify(obj),
             b = applyPatch(a, JSON.parse(patch))
+
+        return JSON.parse(b)
+    }
+
+    Undo.prototype.redo = function (obj) {
+        if (this.stack.length <= this.p) return obj
+
+        var patch = this.stack[this.p++],
+            a = JSON.stringify(obj),
+            b = applyPatch(a, JSON.parse(patch), true)
 
         return JSON.parse(b)
     }

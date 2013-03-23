@@ -155,6 +155,69 @@ describe("Undo", function () {
         })
     })
 
+    describe("#redo()", function () {
+        var obj = {}
+
+        it("does nothing when stack is empty", function () {
+            undo.reset()
+
+            undo.stack.should.be.empty
+            undo.redo("baka").should.equal("baka")
+        })
+
+        it("should apply patches in the same order", function () {
+            undo.rec(obj, function () {
+                obj.a = "obj.a"
+            })
+
+            undo.rec(obj, function () {
+                obj.b = "obj.b"
+            })
+
+            // revert all
+            obj = undo.undo(obj)
+            obj = undo.undo(obj)
+
+            var a = { a: "obj.a" },
+                b = { b: "obj.b" }
+
+            obj.should.not.include(a)
+            obj.should.not.include(b)
+
+            // redo `obj.a`
+            obj = undo.redo(obj)
+
+            obj.should.include(a)
+            obj.should.not.include(b)
+
+            // redo `obj.b`
+            obj = undo.redo(obj)
+
+            obj.should.include(a)
+            obj.should.include(b)
+        })
+
+        it("should be non-destructive", function () {
+            // as a result of previous test
+            undo.stack.should.not.be.empty
+
+            // can't redo
+            undo.canRedo().should.be.false
+
+            var b = { b: "obj.b" }
+
+            obj.should.include(b)
+
+            // revert `obj.b`
+            obj = undo.undo(obj)
+
+            // ignore return value
+            undo.redo(obj)
+
+            obj.should.not.include(b)
+        })
+    })
+
     describe("#reset()", function () {
         it("should reset instance to defaults", function () {
             undo.rec("foo", function () { return "bar" })

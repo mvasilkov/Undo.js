@@ -21,6 +21,12 @@ define(["./lib/diff-match-patch"], function (lib) {
         return utils.patch_toText(patch)
     }
 
+    function applyPatch(a, patch) {
+        patch = utils.patch_fromText(patch)
+
+        return utils.patch_apply(patch, a)[0]
+    }
+
     function Undo() {
         this.stack = Array()
         this.p = 0
@@ -45,6 +51,16 @@ define(["./lib/diff-match-patch"], function (lib) {
 
     Undo.prototype.canUndo = function () {
         return !!this.p
+    }
+
+    Undo.prototype.undo = function (obj) {
+        if (!this.p) return obj
+
+        var patch = this.stack[--this.p],
+            a = JSON.stringify(obj),
+            b = applyPatch(a, patch)
+
+        return JSON.parse(b)
     }
 
     Undo.prototype.reset = function () {

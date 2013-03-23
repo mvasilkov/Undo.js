@@ -9,6 +9,12 @@ define(["./lib/diff-match-patch"], function (lib) {
 
     var utils = new lib.diff_match_patch
 
+    function exchange(obj, a, b) {
+        var aa = obj[a]
+        obj[a] = obj[b]
+        obj[b] = aa
+    }
+
     function makePatch(a, b) {
         var diff = utils.diff_main(b, a)
 
@@ -19,7 +25,18 @@ define(["./lib/diff-match-patch"], function (lib) {
         return utils.patch_make(b, diff)
     }
 
-    function applyPatch(a, patch) {
+    function applyPatch(a, patch, reverse) {
+        if (reverse) {
+            patch.forEach(function (p) {
+                p.diffs.each(function (d) {
+                    if (d[0]) d[0] = -d[0]
+                })
+
+                exchange(p, "start1", "start2")
+                exchange(p, "length1", "length2")
+            })
+        }
+
         return utils.patch_apply(patch, a)[0]
     }
 
@@ -47,6 +64,10 @@ define(["./lib/diff-match-patch"], function (lib) {
 
     Undo.prototype.canUndo = function () {
         return !!this.p
+    }
+
+    Undo.prototype.canRedo = function () {
+        return this.stack.length > this.p
     }
 
     Undo.prototype.undo = function (obj) {

@@ -62,6 +62,15 @@ describe("Undo", function () {
         })
     })
 
+    describe("#canRedo()", function () {
+        it("should initially return false", function () {
+            undo.reset()
+
+            undo.stack.should.be.empty
+            undo.canRedo().should.be.false
+        })
+    })
+
     describe("#undo()", function () {
         var obj = {}
 

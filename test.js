@@ -60,6 +60,13 @@ describe("Undo", function () {
             undo.stack.should.not.be.empty
             undo.canUndo().should.be.true
         })
+
+        it("should return false when reached bottom of stack", function () {
+            undo.undo({ b: "obj.b" })
+
+            undo.stack.should.not.be.empty
+            undo.canUndo().should.be.false
+        })
     })
 
     describe("#canRedo()", function () {
@@ -68,6 +75,22 @@ describe("Undo", function () {
 
             undo.stack.should.be.empty
             undo.canRedo().should.be.false
+        })
+
+        it("should return false when at top of stack", function () {
+            undo.rec({ a: "obj.a" }, function () {
+                return { b: "obj.b" }
+            })
+
+            undo.stack.should.not.be.empty
+            undo.canRedo().should.be.false
+        })
+
+        it("should return true when stack is not empty", function () {
+            undo.undo({ b: "obj.b" })
+
+            undo.stack.should.not.be.empty
+            undo.canRedo().should.be.true
         })
     })
 

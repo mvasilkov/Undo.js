@@ -37,4 +37,37 @@ describe("Undo", function () {
             undo.stack.length.should.equal(2)
         })
     })
+
+    describe("#canUndo()", function () {
+        it("should initially return false", function () {
+            undo.reset()
+
+            undo.stack.should.be.empty
+            undo.canUndo().should.be.false
+        })
+
+        it("should return true when stack is not empty", function () {
+            undo.rec({ a: "obj.a" }, function () {
+                return { b: "obj.b" }
+            })
+
+            undo.stack.should.not.be.empty
+            undo.canUndo().should.be.true
+        })
+    })
+
+    describe("#reset()", function () {
+        it("should reset instance to defaults", function () {
+            // as a result of previous test
+            undo.stack.should.not.be.empty
+            undo.canUndo().should.be.true
+
+            // reset stack
+            undo.reset()
+
+            // same as `undo = new Undo`
+            undo.stack.should.be.empty
+            undo.canUndo().should.be.false
+        })
+    })
 })

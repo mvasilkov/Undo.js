@@ -41,5 +41,13 @@ define(["./lib/diff-match-patch"], function (lib) {
         ++this.p
     }
 
+    Undo.prototype.canUndo = function () {
+        return !!this.p
+    }
+
+    Undo.prototype.reset = function () {
+        Undo.call(this)
+    }
+
     return Undo
 })

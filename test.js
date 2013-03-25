@@ -119,13 +119,13 @@ describe("Undo", function () {
             obj.should.include(a)
             obj.should.include(b)
 
-            // revert `obj.b`
+            // revert obj.b
             obj = undo.undo(obj)
 
             obj.should.include(a)
             obj.should.not.include(b)
 
-            // revert `obj.a`
+            // revert obj.a
             obj = undo.undo(obj)
 
             obj.should.not.include(a)
@@ -165,7 +165,7 @@ describe("Undo", function () {
             undo.redo("baka").should.equal("baka")
         })
 
-        it("should apply patches in the same order", function () {
+        it("should apply patches in normal order", function () {
             undo.rec(obj, function () {
                 obj.a = "obj.a"
             })
@@ -184,13 +184,13 @@ describe("Undo", function () {
             obj.should.not.include(a)
             obj.should.not.include(b)
 
-            // redo `obj.a`
+            // redo obj.a
             obj = undo.redo(obj)
 
             obj.should.include(a)
             obj.should.not.include(b)
 
-            // redo `obj.b`
+            // redo obj.b
             obj = undo.redo(obj)
 
             obj.should.include(a)
@@ -208,7 +208,7 @@ describe("Undo", function () {
 
             obj.should.include(b)
 
-            // revert `obj.b`
+            // revert obj.b
             obj = undo.undo(obj)
 
             // ignore return value
@@ -221,9 +221,14 @@ describe("Undo", function () {
     describe("#reset()", function () {
         it("should reset instance to defaults", function () {
             undo.rec("foo", function () { return "bar" })
+            undo.rec("bar", function () { return "baz" })
+
+            // so that canRedo() is true
+            undo.undo("baz").should.equal("bar")
 
             undo.stack.should.not.be.empty
             undo.canUndo().should.be.true
+            undo.canRedo().should.be.true
 
             // reset stack
             undo.reset()
@@ -231,6 +236,7 @@ describe("Undo", function () {
             // same as `undo = new Undo`
             undo.stack.should.be.empty
             undo.canUndo().should.be.false
+            undo.canRedo().should.be.false
         })
     })
 })

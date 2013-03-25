@@ -1,5 +1,5 @@
 if (typeof define != "function" && typeof module == "object") {
-    function define(requirements, setup) {
+    var define = function (requirements, setup) {
         module.exports = setup.apply(this, requirements.map(require))
     }
 }

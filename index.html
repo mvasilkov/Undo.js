@@ -5,5 +5,11 @@
         <title>Undo.js</title>
     </head>
     <body>
+        <script src="lib/require.js"></script>
+        <script>
+            require(["undo"], function (Undo) {
+                var undo = new Undo
+            })
+        </script>
     </body>
 </html>

@@ -1,0 +1,20 @@
+body {
+    background: #fbfbfb;
+    color: #101010;
+    font-family: "Open Sans", sans-serif;
+    padding-top: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+h1, .tagline {
+    text-align: center;
+}
+
+h1 {
+    color: #0096dd;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 96px;
+}

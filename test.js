@@ -42,6 +42,30 @@ describe("Undo", function () {
                 patch.should.be.a("string")
             })
         })
+
+        it("should update level accordingly", function () {
+            undo.rec(obj, function () {
+                undo.level.should.equal(1)
+
+                undo.rec(obj, function () {
+                    undo.level.should.equal(2)
+                })
+            })
+        })
+
+        it("should ignore nested changesets", function () {
+            undo.reset()
+
+            undo.rec(obj, function () {
+                obj.a = "obj.a"
+
+                undo.rec(obj, function () {
+                    obj.b = "obj.b"
+                })
+            })
+
+            undo.stack.length.should.equal(1)
+        })
     })
 
     describe("#canUndo()", function () {

@@ -43,12 +43,21 @@ define(["./lib/diff-match-patch"], function (lib) {
     function Undo() {
         this.stack = Array()
         this.p = 0
+        this.level = 0
     }
 
     Undo.prototype.rec = function (obj, fun) {
+        if (this.level++) {
+            fun(obj)
+            --this.level
+            return
+        }
+
         var a = JSON.stringify(obj),
             b = JSON.stringify(fun(obj) || obj),
             patch = makePatch(a, b)
+
+        --this.level
 
         if (!patch.length) return
 

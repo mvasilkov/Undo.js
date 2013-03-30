@@ -24,11 +24,15 @@
         <script data-main="demo-main" src="lib/require.js"></script>
         <script type="text/html" id="listview">
             <ul class="dropdown-menu main-menu">
-                <li><a href="#@">New</a></li>
+                <li><a href="#@" class="action-new">New</a></li>
                 <li class="divider"></li>
-                <li><a href="#@">Undo</a></li>
-                <li><a href="#@">Redo</a></li>
+                <li><a href="#@" class="action-undo">Undo</a></li>
+                <li><a href="#@" class="action-redo">Redo</a></li>
             </ul>
+            <div class="modal hide fade">
+                <div class="modal-body"><input class="new-todo" type="text"></div>
+                <div class="modal-footer">Return to save; Escape to cancel.</div>
+            </div>
         </script>
     </body>
 </html>

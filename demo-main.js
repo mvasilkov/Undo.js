@@ -6,6 +6,7 @@ require.config({
         "backbone": "demo/lib/backbone",
         "mustache": "demo/lib/mustache",
         "icanhaz": "demo/lib/ICanHaz-no-mustache",
+        "bootstrap": "demo/lib/bootstrap",
         /* app */
         "router": "demo/app/router",
         "views": "demo/app/views"

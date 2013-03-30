@@ -19,10 +19,20 @@ h1 {
     line-height: 96px;
 }
 
+input, button {
+    font-family: inherit;
+}
+
 .main-menu {
     display: block;
     float: none;
     margin: 5px auto;
     position: static;
     width: 160px;
+}
+
+input.new-todo {
+    color: inherit;
+    margin: 2px;
+    width: 512px;
 }

@@ -15,13 +15,18 @@ define(["jquery", "backbone", "icanhaz", "bootstrap"], function ($, Backbone, IC
             events: {
                 "click a.action-new": "actionNew",
                 "click a.action-undo": "actionUndo",
-                "click a.action-redo": "actionRedo"
+                "click a.action-redo": "actionRedo",
+                "shown div.modal": "modalShow",
+                "keyup input.new-todo": "modalKeyup",
+                "blur input.new-todo": "modalClose"
             },
 
             actionNew: function (event) {
                 event.preventDefault()
 
-                this.$(".modal").modal()
+                this.$("input.new-todo").val("")
+
+                this.$("div.modal").modal()
             },
 
             actionUndo: function (event) {
@@ -30,6 +35,20 @@ define(["jquery", "backbone", "icanhaz", "bootstrap"], function ($, Backbone, IC
 
             actionRedo: function (event) {
                 event.preventDefault()
+            },
+
+            modalShow: function (event) {
+                this.$("input.new-todo").focus()
+            },
+
+            modalKeyup: function (event) {
+                if (event.keyCode == 0xd) {
+                    this.modalClose()
+                }
+            },
+
+            modalClose: function (event) {
+                this.$("div.modal").modal("hide")
             }
         })
 

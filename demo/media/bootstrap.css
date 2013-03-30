@@ -2315,16 +2315,15 @@ table th[class*="span"],
   margin: 2px 0 0;
   list-style: none;
   background-color: #ffffff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.5);
   *border-right-width: 2px;
   *border-bottom-width: 2px;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 10px -1px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 5px 10px -1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 10px -1px rgba(0, 0, 0, 0.1);
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -2341,7 +2340,7 @@ table th[class*="span"],
   margin: 9px 1px;
   *margin: -5px 0 5px;
   overflow: hidden;
-  background-color: #e5e5e5;
+  background-color: #bfbfbf;
   border-bottom: 1px solid #ffffff;
 }
 
@@ -4098,7 +4097,7 @@ input[type="submit"].btn.btn-mini {
   border-right: 7px solid transparent;
   border-bottom: 7px solid #ccc;
   border-left: 7px solid transparent;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-bottom-color: rgba(0, 0, 0, 0.5);
   content: '';
 }
 
@@ -4118,7 +4117,7 @@ input[type="submit"].btn.btn-mini {
   bottom: -7px;
   border-top: 7px solid #ccc;
   border-bottom: 0;
-  border-top-color: rgba(0, 0, 0, 0.2);
+  border-top-color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar-fixed-bottom .nav > li > .dropdown-menu:after {

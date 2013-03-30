@@ -18,3 +18,11 @@ h1 {
     letter-spacing: -1px;
     line-height: 96px;
 }
+
+.main-menu {
+    display: block;
+    float: none;
+    margin: 5px auto;
+    position: static;
+    width: 160px;
+}

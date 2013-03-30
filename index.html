@@ -10,7 +10,7 @@
         <script>
             var OpenSans = "Open+Sans:400italic,400:latin,cyrillic",
                 PressStart2P = "Press+Start+2P::latin,cyrillic",
-                WebFontConfig = { "google": { "families": [OpenSans, PressStart2P] } }
+                WebFontConfig = { "google": { "families": [ OpenSans, PressStart2P ] } }
         </script>
         <script src="//ajax.googleapis.com/ajax/libs/webfont/1.3.0/webfont.js"></script>
     </head>
@@ -23,6 +23,12 @@
         </div>
         <script data-main="demo-main" src="lib/require.js"></script>
         <script type="text/html" id="listview">
+            <ul class="dropdown-menu main-menu">
+                <li><a href="#@">New</a></li>
+                <li class="divider"></li>
+                <li><a href="#@">Undo</a></li>
+                <li><a href="#@">Redo</a></li>
+            </ul>
         </script>
     </body>
 </html>

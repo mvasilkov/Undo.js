@@ -231,13 +231,13 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #2e9fff;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #005580;
+  color: #0082f0;
   text-decoration: underline;
 }
 
@@ -2360,14 +2360,14 @@ table th[class*="span"],
 .dropdown-submenu:focus > a {
   color: #ffffff;
   text-decoration: none;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
-  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-color: #249aff;
+  background-image: -moz-linear-gradient(top, #2e9fff, #1593ff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e9fff), to(#1593ff));
+  background-image: -webkit-linear-gradient(top, #2e9fff, #1593ff);
+  background-image: -o-linear-gradient(top, #2e9fff, #1593ff);
+  background-image: linear-gradient(to bottom, #2e9fff, #1593ff);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2e9fff', endColorstr='#ff1593ff', GradientType=0);
 }
 
 .dropdown-menu > .active > a,
@@ -2375,15 +2375,15 @@ table th[class*="span"],
 .dropdown-menu > .active > a:focus {
   color: #ffffff;
   text-decoration: none;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
-  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-color: #249aff;
+  background-image: -moz-linear-gradient(top, #2e9fff, #1593ff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e9fff), to(#1593ff));
+  background-image: -webkit-linear-gradient(top, #2e9fff, #1593ff);
+  background-image: -o-linear-gradient(top, #2e9fff, #1593ff);
+  background-image: linear-gradient(to bottom, #2e9fff, #1593ff);
   background-repeat: repeat-x;
   outline: 0;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2e9fff', endColorstr='#ff1593ff', GradientType=0);
 }
 
 .dropdown-menu > .disabled > a,
@@ -2751,17 +2751,17 @@ input[type="button"].btn-block {
 .btn-primary {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #006dcc;
-  *background-color: #0044cc;
-  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-color: #2e83ff;
+  *background-color: #2e59ff;
+  background-image: -moz-linear-gradient(top, #2e9fff, #2e59ff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e9fff), to(#2e59ff));
+  background-image: -webkit-linear-gradient(top, #2e9fff, #2e59ff);
+  background-image: -o-linear-gradient(top, #2e9fff, #2e59ff);
+  background-image: linear-gradient(to bottom, #2e9fff, #2e59ff);
   background-repeat: repeat-x;
-  border-color: #0044cc #0044cc #002a80;
+  border-color: #2e59ff #2e59ff #002fe1;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2e9fff', endColorstr='#ff2e59ff', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
@@ -2772,13 +2772,13 @@ input[type="button"].btn-block {
 .btn-primary.disabled,
 .btn-primary[disabled] {
   color: #ffffff;
-  background-color: #0044cc;
-  *background-color: #003bb3;
+  background-color: #2e59ff;
+  *background-color: #1545ff;
 }
 
 .btn-primary:active,
 .btn-primary.active {
-  background-color: #003399 \9;
+  background-color: #0034fa \9;
 }
 
 .btn-warning {
@@ -2987,7 +2987,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .btn-link {
-  color: #0088cc;
+  color: #2e9fff;
   cursor: pointer;
   border-color: transparent;
   -webkit-border-radius: 0;
@@ -2997,7 +2997,7 @@ input[type="submit"].btn.btn-mini {
 
 .btn-link:hover,
 .btn-link:focus {
-  color: #005580;
+  color: #0082f0;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3161,7 +3161,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .btn-group.open .btn-primary.dropdown-toggle {
-  background-color: #0044cc;
+  background-color: #2e59ff;
 }
 
 .btn-group.open .btn-warning.dropdown-toggle {
@@ -3398,7 +3398,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:focus {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0088cc;
+  background-color: #2e9fff;
 }
 
 .nav-list [class^="icon-"],
@@ -3495,7 +3495,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
   color: #ffffff;
-  background-color: #0088cc;
+  background-color: #2e9fff;
 }
 
 .nav-stacked > li {
@@ -3563,14 +3563,14 @@ input[type="submit"].btn.btn-mini {
 
 .nav .dropdown-toggle .caret {
   margin-top: 6px;
-  border-top-color: #0088cc;
-  border-bottom-color: #0088cc;
+  border-top-color: #2e9fff;
+  border-bottom-color: #2e9fff;
 }
 
 .nav .dropdown-toggle:hover .caret,
 .nav .dropdown-toggle:focus .caret {
-  border-top-color: #005580;
-  border-bottom-color: #005580;
+  border-top-color: #0082f0;
+  border-bottom-color: #0082f0;
 }
 
 /* move down carets for tabs */
@@ -4964,7 +4964,7 @@ input[type="submit"].btn.btn-mini {
 
 a.thumbnail:hover,
 a.thumbnail:focus {
-  border-color: #0088cc;
+  border-color: #2e9fff;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
      -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
           box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);

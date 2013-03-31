@@ -31,6 +31,10 @@ input, button {
     width: 160px;
 }
 
+.main-menu a {
+    margin: 0 1px;
+}
+
 input.new-todo {
     color: inherit;
     margin: 2px;

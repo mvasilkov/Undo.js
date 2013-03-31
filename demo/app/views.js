@@ -1,5 +1,5 @@
 define(["jquery", "backbone", "icanhaz", "bootstrap"], function ($, Backbone, ICanHaz) {
-    var container = $(".container"),
+    var container = $("div.container"),
         ListView = Backbone.View.extend({
             className: "row",
 
@@ -43,6 +43,12 @@ define(["jquery", "backbone", "icanhaz", "bootstrap"], function ($, Backbone, IC
 
             modalKeyup: function (event) {
                 if (event.keyCode == 0xd) {
+                    var todo = this.$("input.new-todo").val()
+
+                    if (todo = $.trim(todo)) {
+                        this.collection.create({ todo: todo })
+                    }
+
                     this.modalClose()
                 }
             },

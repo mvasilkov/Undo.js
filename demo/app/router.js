@@ -1,4 +1,6 @@
-define(["backbone", "views"], function (Backbone, views) {
+define(["backbone", "models", "views"], function (Backbone, models, views) {
+    var collection = new models.TodoList
+
     return Backbone.Router.extend({
         routes: {"": "default"},
 
@@ -7,7 +9,7 @@ define(["backbone", "views"], function (Backbone, views) {
                 this.activeView.remove()
             }
 
-            this.activeView = new views.ListView
+            this.activeView = new views.ListView({ collection: collection })
         },
 
         initialize: function () {

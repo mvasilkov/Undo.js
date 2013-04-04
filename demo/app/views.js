@@ -1,15 +1,22 @@
 define(["jquery", "backbone", "icanhaz", "bootstrap"], function ($, Backbone, ICanHaz) {
     var container = $("div.container"),
+        todoContainer = $("ul.todo-container"),
         ListView = Backbone.View.extend({
             className: "row",
 
             initialize: function () {
                 this.$el.append(ICanHaz.listview())
                 container.append(this.$el)
+
+                this.collection.on("add", this.append, this)
             },
 
             render: function () {
                 return this
+            },
+
+            append: function (todo) {
+                new TodoView({ model: todo })
             },
 
             events: {
@@ -56,9 +63,22 @@ define(["jquery", "backbone", "icanhaz", "bootstrap"], function ($, Backbone, IC
             modalClose: function (event) {
                 this.$("div.modal").modal("hide")
             }
+        }),
+        TodoView = Backbone.View.extend({
+            tagName: "li",
+
+            initialize: function () {
+                this.$el.append(ICanHaz.todoview(this.model))
+                todoContainer.append(this.$el)
+            },
+
+            render: function () {
+                return this
+            }
         })
 
     return {
-        ListView: ListView
+        ListView: ListView,
+        TodoView: TodoView
     }
 })

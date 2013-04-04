@@ -26,7 +26,7 @@ input, button {
 .main-menu {
     display: block;
     float: none;
-    margin: 5px auto;
+    margin: 10px auto;
     position: static;
     width: 160px;
 }
@@ -39,4 +39,23 @@ input.new-todo {
     color: inherit;
     margin: 2px;
     width: 512px;
+}
+
+.todo-container {
+    list-style: none;
+    margin: 10px auto;
+    width: 400px;
+}
+
+.todo-container li {
+    margin: 0;
+    padding: 8px 16px;
+}
+
+.todo-container li:nth-child(2n+1) {
+    background: #bbdfff;
+}
+
+.todo-container p {
+    margin: 0;
 }

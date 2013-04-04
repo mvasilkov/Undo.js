@@ -20,6 +20,9 @@
                 <h1>Undo.js</h1>
                 <p class="tagline">Reverting things back to the way they were, since 2013</p>
             </div>
+            <div class="row">
+                <ul class="todo-container"></ul>
+            </div>
         </div>
         <script data-main="demo-main" src="lib/require.js"></script>
         <script type="text/html" id="listview">
@@ -33,6 +36,9 @@
                 <div class="modal-body"><input class="new-todo" type="text"></div>
                 <div class="modal-footer">Return to save; Escape to cancel.</div>
             </div>
+        </script>
+        <script type="text/html" id="todoview">
+            <p>{{attributes.todo}}</p>
         </script>
     </body>
 </html>

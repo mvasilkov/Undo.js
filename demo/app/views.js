@@ -9,6 +9,7 @@ define(["jquery", "backbone", "icanhaz", "bootstrap"], function ($, Backbone, IC
                 container.append(this.$el)
 
                 this.collection.on("add", this.append, this)
+                this.collection.fetch()
             },
 
             render: function () {

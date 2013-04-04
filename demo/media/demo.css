@@ -2,7 +2,7 @@ body {
     background: #fbfbfb;
     color: #101010;
     font-family: "Open Sans", sans-serif;
-    padding-top: 20px;
+    padding: 20px 0;
     text-rendering: optimizeLegibility;
 }
 
